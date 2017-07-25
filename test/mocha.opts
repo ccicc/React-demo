@@ -1,0 +1,5 @@
+--ui bdd
+--reporter spec
+--timeout 5000
+--require jsdom-global/register
+--compilers js:babel-core/register,css:test/css-null-compiler.js
