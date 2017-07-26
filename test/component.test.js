@@ -6,10 +6,11 @@ import {shallow,mount} from 'enzyme';
 
 import {
     FooterNav,
-    Timer
+    Timer,
+    Counter
 } from './../src/js/components';
 
-describe('测试 Components',() => {
+describe('test Components',() => {
 
     describe('<FooterNav />',() => {
         const wrapper = mount(<FooterNav/>);
@@ -18,6 +19,7 @@ describe('测试 Components',() => {
             assert.strictEqual(wrapper.hasClass('fixed-bottom'),true);
             assert.strictEqual(wrapper.children('NavLink').length,4);
             assert.strictEqual(wrapper.childAt(0).props().onlyActiveOnIndex,true);
+
             wrapper.children('NavLink').forEach((node) => {
                 assert.exists(node.props().pathUrl);
                 assert.exists(node.props().linkName);
@@ -52,17 +54,60 @@ describe('测试 Components',() => {
 
         it('click on the logical test',() => {
             const btns = wrapper.find('button');
+
             btns.at(0).simulate('click');
             assert.isTrue(wrapper.props().onStart.calledOnce);
 
             btns.at(1).simulate('click');
             assert.isFalse(wrapper.props().onStop.calledOnce);
+
             wrapper.setProps({status: 'staring'});
             btns.at(1).simulate('click');
             assert.isTrue(wrapper.props().onStop.calledOnce);
 
             btns.at(2).simulate('click');
             assert.isTrue(wrapper.props().onReset.calledOnce);
+        });
+    });
+
+
+    describe('<Counter/>',() => {
+        const props = {
+            sum: 0,
+            timeout: 3,
+            asyncBool: false,
+            onIncrement: sinon.spy(),
+            onDecrement: sinon.spy(),
+            onAsyncIncrement: sinon.spy()
+        };
+        const root = mount(<Counter {...props}/>);
+        const wrapper = root.childAt(0);
+
+        it('should render coorretly',() => {
+            assert.strictEqual(wrapper.name(),'div');
+
+            const types = wrapper.children().map(node => node.type());
+            assert.deepEqual(types,['h1','div','div','div']);
+            
+            assert.strictEqual(wrapper.find('h1').text(),'0');
+            assert.deepEqual(wrapper.childAt(1).find('button').map(node => node.text()),['+','-']);
+            assert.strictEqual(wrapper.childAt(2).find('button').text(),'偶数+1');
+            assert.strictEqual(wrapper.childAt(3).find('button').text(),'3秒后+1');
+        });
+
+        it('click on the logical test',() => {
+            wrapper.childAt(1).find('button').map(node => node.simulate('click'));
+            assert.isTrue(root.prop('onIncrement').calledOnce);
+            assert.isTrue(root.prop('onDecrement').calledOnce);
+
+            wrapper.childAt(2).find('button').simulate('click');
+            assert.isTrue(root.prop('onIncrement').calledTwice);
+            root.setProps({sum: 1});
+            wrapper.childAt(2).find('button').simulate('click');
+            assert.isFalse(root.prop('onIncrement').calledThrice);
+
+            wrapper.childAt(3).find('button').simulate('click');
+            assert.isTrue(root.prop('onAsyncIncrement').calledOnce);
         });
     });
 });

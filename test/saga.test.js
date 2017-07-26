@@ -1,9 +1,4 @@
 import {assert} from 'chai';
-
-import {timer,watchTimer} from './../src/js/saga/timer';
-import * as actions from './../src/js/actions/TimerAction';
-import * as types from './../src/js/actions/actionTypes';
-
 import {createMockTask} from 'redux-saga/utils';
 import {delay} from 'redux-saga';
 import {
@@ -13,15 +8,23 @@ import {
     put,
     cancel
 } from 'redux-saga/effects';
+import * as types from './../src/js/actions/actionTypes';
 
-describe('测试 sagas',() => {
+import * as timerActions from './../src/js/actions/TimerAction';
+import * as counterActions from './../src/js/actions/CounterAction';
+
+import {timer,watchTimer} from './../src/js/saga/timer';
+import {counterAsync,watchCounter} from './../src/js/saga/counter';
+
+describe('test sagas',() => {
 
     describe('timer sagas',() => {
         
         it('timer-saga',() => {
             const gen = timer();
             assert.deepEqual(gen.next().value,call(delay,1000));
-            assert.deepEqual(gen.next().value,put(actions.onTimer()));
+            assert.deepEqual(gen.next().value,put(timerActions.onTimer()));
+            assert.deepEqual(gen.next().value,call(delay,1000));
         });
 
         it('watchTimer-saga',() => {
@@ -30,7 +33,7 @@ describe('测试 sagas',() => {
             let next = gen.next();
             assert.deepEqual(next.value,take(types.START));
 
-            next = gen.next(actions.onStart());
+            next = gen.next(timerActions.onStart());
             assert.deepEqual(next.value,fork(timer));
 
             let mockTask = createMockTask();
@@ -40,6 +43,22 @@ describe('测试 sagas',() => {
 
             next = gen.next();
             assert.deepEqual(next.value,cancel(mockTask));
+            
+            next = gen.next();
+            assert.deepEqual(next.value,take(types.START));
+        });
+    });
+
+    describe('counter saga',() => {
+        it('counterAsync-saga',() => {
+            const gen = counterAsync();
+            for(let i = 0;i < 3;i++){
+                assert.deepEqual(gen.next().value,call(delay,1000));
+                assert.deepEqual(gen.next().value,put(counterActions.onTimeoutDown()));
+            }
+            assert.deepEqual(gen.next().value,put(counterActions.onIncrement()));
+            assert.deepEqual(gen.next().value,put(counterActions.onTimeoutOver()));
+            assert.deepEqual(gen.next(),{value: undefined,done: true});
         });
     });
 });

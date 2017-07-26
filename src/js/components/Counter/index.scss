@@ -1,0 +1,84 @@
+.root {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to bottom, #009966, #0099cc);
+}
+
+.wrapper {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    font-size: 150%;
+    width: 4rem;
+    height: 6rem;
+    margin-top: -2rem;
+    background: #f5f5f5;
+    border-radius: 5px;
+}
+
+.sum {
+    font-size: 2rem;
+    color: #333;
+}
+
+.btnCommon {
+    padding: 0.3em 0.4em;
+    border-radius: 0.1rem;
+    border: 1px solid;
+    background: #fefefe;
+    line-height: 1;
+    margin: 0.1rem 0;
+    outline: none;
+    vertical-align: middle;
+    transition: transform 60ms ease-out;
+    &:active {
+        transform: translateY(2px);
+        transition: transform 100ms ease-out;
+    }
+    &:hover,
+    &:focus {
+        outline: none;
+    }
+}
+
+.increment {
+    composes: btnCommon;
+    width: 1rem;
+    color: #009900;
+    border-color: #006600;
+    margin-right: 0.2rem;
+}
+
+.decrement {
+    composes: btnCommon;
+    width: 1rem;
+    color: #0099cc;
+    border-color: #0066cc;
+}
+
+.even {
+    composes: btnCommon;
+    width: 2rem;
+    color: #990099;
+    border-color: #660099;
+}
+
+.async {
+    composes: btnCommon;
+    width: 2.5rem;
+    color: #cc9900;
+    border-color: #cc6600;
+}
+
+.async:disabled {
+    color: #ccc;
+    border-color: #ccc;
+    cursor: not-allowed;
+}
