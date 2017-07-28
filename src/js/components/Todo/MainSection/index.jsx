@@ -1,5 +1,6 @@
 import React from 'react';
-
+import {Switch} from 'antd-mobile';
+import {createForm} from 'rc-form';
 import styles from './index.scss';
 import TodoItem from './TodoItem';
 import Footer from './Footer';
@@ -15,10 +16,20 @@ class MainSection extends React.Component{
             todoActions,
             todoShow,
             selectedItems,
-            onClearSelected
+            onClearSelected,
+            onCompletedAll
         } = this.props;
+        const {getFieldProps} = this.props.form;
         return (
-            <div>
+            <div className={styles.root}>
+                <Switch
+                    {...getFieldProps('switch1',{
+                        initialValue: todoItems.length === selectedItems && todoItems.length > 0,
+                        valuePropName: 'checked'
+                    })}
+                    onChange = {() => onCompletedAll()}
+                    className = {styles.toggle}
+                />
                 <ul className={styles.items}>
                     {todoItems.map(item => (
                         <TodoItem 
@@ -39,4 +50,4 @@ class MainSection extends React.Component{
     }
 }
 
-export default MainSection;
+export default createForm()(MainSection);

@@ -130,15 +130,15 @@ module.exports = {
     resolve: {
         extensions: [
             '*',
+            '.web.js',
             '.js',
             '.jsx',
             '.css',
             '.scss',
             '.json',
-            '.web.js'
         ],
         modules: [
-            'node_modules', path.join(__dirname, '/node_modules')
+            'node_modules', path.join(__dirname, '../node_modules')
         ],
         alias: {
             styles: path.resolve(__dirname, './src/styles'),

@@ -11,7 +11,10 @@ module.exports = {
     syntax: 'postcss-scss',
     sourceMap: true,
     plugins: [
-        require('postcss-pxtorem')({rootValue: 100}),
+        require('postcss-pxtorem')({
+            rootValue: 100,
+            propWhiteList: []
+        }),
         require('precss')(),
         require('autoprefixer')({browsers: AUTOPREFIXER_BROWSER}),
         require('rucksack-css')({autoprefixer: true})

@@ -16,6 +16,13 @@ export default class Todo extends React.Component{
         })
     }
 
+    onCompletedAll = () => {
+        const {todoItems,todoActions} = this.props;
+        todoItems.forEach(item => {
+            todoActions.onTodoCompleted(item.id);
+        }); 
+    }
+
     render(){
         const {todoItems,todoActions,todoShow} = this.props;
         const selectedItems = todoItems.filter(item => item.completed).length;
@@ -31,6 +38,7 @@ export default class Todo extends React.Component{
                         todoActions = {todoActions}
                         selectedItems = {selectedItems}
                         onClearSelected = {this.onClearSelected}
+                        onCompletedAll = {this.onCompletedAll}
                     />
                 </div>
             </div>

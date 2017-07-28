@@ -1,4 +1,5 @@
 import React from 'react';
+import {Modal} from 'antd-mobile';
 import styles from './index.scss';
 
 
@@ -44,7 +45,12 @@ class Footer extends React.Component{
                 </ul>
                 <button 
                     className={styles.clearBtn}
-                    onClick={() => onClearSelected()}
+                    onClick={
+                        () => Modal.alert('确定要删除吗？',`共选中了${selectedItems}个任务`,[
+                            {text: '取消'},
+                            {text: '确定',onPress: () => onClearSelected()}
+                        ])
+                    }
                     disabled = {selectedItems < 1}
                 >清除选中的任务</button>
             </div>
