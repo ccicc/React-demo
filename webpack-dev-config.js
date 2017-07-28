@@ -118,6 +118,12 @@ module.exports = {
                     }
                 ],
                 exclude: /node_modules/
+            },
+
+            {
+                test: /\.svg$/i,
+                loader: 'svg-sprite',
+                include: require.resolve('antd-mobile').replace(/warn\.js$/, '')
             }
         ]
     },

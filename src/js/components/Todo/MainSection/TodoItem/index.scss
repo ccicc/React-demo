@@ -1,0 +1,70 @@
+.root{
+    position: relative;
+    border-bottom: 1px solid #ccc;
+    padding-left:0.6rem;
+}
+.root:last-child{
+    border: none;
+}
+
+.toggle{
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    text-align:center;
+    margin: 0 auto;
+    appearance: none;
+    background: none;
+    outline: none;
+    &:after{
+        display: block;
+        width: 0.7rem;
+        height: 100%;
+        content: '';
+        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 -18 100 136"><circle cx="50" cy="50" r="50" fill="none" stroke="#ccc" stroke-width="4"/></svg>') center no-repeat;
+        background-size: 70% 70%;
+    }
+    &:checked:after{
+        background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 -18 100 136"><circle cx="50" cy="50" r="50" fill="none" stroke="#1abc9c" stroke-width="4"/><path fill="#5dc2af" d="M72 25L42 71 27 56l-4 4 20 20 34-52z"/></svg>') center center no-repeat;
+        background-size: 70% 70%;
+    }
+}
+
+.completed{
+    opacity: 0.5
+}
+
+.text{
+    display: block;
+    font-size: 0.3rem;
+    padding: 0.25rem 0.6rem 0.25rem 0.25rem;
+    line-height: 1;
+}
+
+.content{
+    position: relative;
+    opacity: 1;
+    transition: opacity 200ms ease-out;
+    line-height: 1;
+    cursor: pointer;
+    text-transform: capitalize;
+    &:after{
+        position: absolute;
+        display: block;
+        content: '';
+        width: calc(100% + 1em);
+        height: 2px;
+        top: 50%;
+        left: -0.5em;
+        background: #2e2e2e;
+        transform: scaleX(0);
+        transform-origin: center right;
+        transition: transform 500ms ease-out-sine;
+    }
+}
+
+.contentCompleted:after{
+    transform: scaleX(1);
+    transform-origin: center left;
+}

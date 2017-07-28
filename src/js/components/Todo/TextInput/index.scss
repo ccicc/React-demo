@@ -1,0 +1,37 @@
+.root{
+    position: relative;
+    padding-left: 1.3rem;
+}
+.input{
+    display:block;
+    width: 70%;
+    padding: 0.1rem;
+    padding-right: 0.2rem;
+    font-size: 0.28rem;
+    line-height: 1;
+    border:1px solid #ccc;
+    border-radius: 0.1rem;
+    outline: none;
+    &:focus,
+    &:active{
+        border-color: #1abc9c;
+        outline: none;
+    }
+}
+
+.btn{
+    position: absolute;
+    right: 0.15rem;
+    top: -0.2rem;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 50%;
+    background: #1ab9c9;
+    font-size: 0.3rem;
+    color: #fff;
+    text-align:center;
+    line-height: 1;
+    border: none;
+    outline: none;
+    opacity: 1;
+}

@@ -1,0 +1,39 @@
+.root{
+    width:100%;
+    text-align:center;
+    margin-top: 0.1rem;
+}
+.filters{
+    display:flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items:center;
+    padding: 0.2rem 0;
+}
+
+.count{
+    display: block;
+    text-align: left;
+    color:#999;
+}
+
+.selected{
+    color: #1abc9c;
+}
+
+.clearBtn{
+    padding: 0.2rem 0.8rem;
+    border: 1px solid #1abc9c;
+    border-radius: 0.1rem;
+    outline: none;
+    background: #1abc9c;
+    color: #fff;
+    line-height: 1;
+}
+
+.clearBtn[disabled]{
+    background: #ddd;
+    border-color: #ddd;
+    color:#666;
+    cursor:not-allowed;
+}
