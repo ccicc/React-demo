@@ -1,17 +1,17 @@
 import React from 'react';
 import styles from './index.scss';
 
-import {Switch} from 'antd-mobile';
-import {createForm} from 'rc-form';
+import { Switch } from 'antd-mobile';
+import { createForm } from 'rc-form';
 import TodoItem from './TodoItem';
 import Footer from './Footer';
 
-class MainSection extends React.Component{
-    constructor(props){
+class MainSection extends React.Component {
+    constructor(props) {
         super(props);
     }
 
-    render(){
+    render() {
         const {
             todoItems,
             todoActions,
@@ -20,31 +20,31 @@ class MainSection extends React.Component{
             onClearSelected,
             onCompletedAll
         } = this.props;
-        const {getFieldProps} = this.props.form;
+        const { getFieldProps } = this.props.form;
         return (
             <div className={styles.root}>
                 <Switch
-                    {...getFieldProps('switch1',{
+                    {...getFieldProps('switch1', {
                         initialValue: todoItems.length === selectedItems && todoItems.length > 0,
                         valuePropName: 'checked'
-                    })}
-                    onChange = {() => onCompletedAll()}
-                    className = {styles.toggle}
+                    }) }
+                    onChange={() => onCompletedAll()}
+                    className={styles.toggle}
                 />
                 <ul className={styles.items}>
                     {todoItems.map(item => (
-                        <TodoItem 
+                        <TodoItem
                             key={item.id}
                             todo={item}
                             {...todoActions}
                         />
                     ))}
                 </ul>
-                <Footer 
+                <Footer
                     {...todoActions}
-                    todoShow = {todoShow}
-                    selectedItems = {selectedItems}
-                    onClearSelected = {onClearSelected}
+                    todoShow={todoShow}
+                    selectedItems={selectedItems}
+                    onClearSelected={onClearSelected}
                 />
             </div>
         )

@@ -18,22 +18,24 @@ class TodoItem extends React.Component {
     componentDidMount() {
         // 绑定滑动事件
         touchFunc(this.label, 'left', this.handlerLeft);
+        touchFunc(this.label, 'long', this.handlerLeft);
     }
 
     componentDidUpdate() {
         this.label && touchFunc(this.label, 'left', this.handlerLeft);
+        this.label && touchFunc(this.label, 'long', this.handlerLeft);
     }
 
     handlerLeft = () => {
-        this.setState({btnsShow: true})
+        this.setState({ btnsShow: true })
     }
 
     handlerCancel = () => {
-        this.setState({btnsShow: false})
+        this.setState({ btnsShow: false })
     }
 
     handlerEditor = () => {
-        this.setState({editorBool: true, btnsShow: false})
+        this.setState({ editorBool: true, btnsShow: false })
     }
 
     handlerSave = (text, id) => {
@@ -43,47 +45,49 @@ class TodoItem extends React.Component {
                 .onTodoDelete(id);
         } else {
             text !== this.props.todo.content &&
-            this.props.onTodoEditor(id,text);
+                this.props.onTodoEditor(id, text);
         }
-        this.setState({editorBool: false})
+        this.setState({ editorBool: false })
     }
 
     render() {
         let element;
-        const {todo, onTodoCompleted, onTodoDelete, onTodoAdd} = this.props;
-        const {btnsShow, editorBool} = this.state;
+        const { todo, onTodoCompleted, onTodoDelete, onTodoAdd } = this.props;
+        const { btnsShow, editorBool } = this.state;
 
         if (editorBool) {
-            element = (<TextInput
-                onSave=
-                {(text) => this.handlerSave(text,todo.id)}
-                text={todo.content}/>);
+            element = (
+                <TextInput
+                    onSave=
+                    {(text) => this.handlerSave(text, todo.id)}
+                    text={todo.content}
+                />);
         } else {
             element = (
                 <div>
                     <input
                         type="checkbox"
                         checked={todo.completed}
-                        onChange=
-                        {() => onTodoCompleted(todo.id)}
+                        onChange={() => onTodoCompleted(todo.id)}
                         className={classnames({
-                        [styles.toggle]: true
-                    })}/>
+                            [styles.toggle]: true
+                        })}
+                    />
                     <label
-                        ref=
-                        {label => this.label = label}
-                        onClick=
-                        {() => onTodoCompleted(todo.id)}
+                        ref={label => this.label = label}
+                        onClick={() => onTodoCompleted(todo.id)}
                         className={classnames({
-                        [styles.text]: true,
-                        [styles.completed]: todo.completed,
-                        "text-overflow": true
-                    })}>
+                            [styles.text]: true,
+                            [styles.completed]: todo.completed,
+                            "text-overflow": true
+                        })}
+                    >
                         <span
                             className={classnames({
-                            [styles.content]: true,
-                            [styles.contentCompleted]: todo.completed
-                        })}>
+                                [styles.content]: true,
+                                [styles.contentCompleted]: todo.completed
+                            })}
+                        >
                             {todo.content}
                         </span>
                     </label>
@@ -92,7 +96,7 @@ class TodoItem extends React.Component {
                         transitionEnterTimeout={500}
                         transitionLeaveTimeout={300}>
                         {btnsShow && <div key={todo.id} className={styles.btns}>
-                            <button className={styles.deleteBtn} onClick= {() => onTodoDelete(todo.id)}>
+                            <button className={styles.deleteBtn} onClick={() => onTodoDelete(todo.id)}>
                                 删除
                             </button>
                             <button className={styles.editorBtn} onClick={this.handlerEditor}>
@@ -102,7 +106,7 @@ class TodoItem extends React.Component {
                                 取消
                             </button>
                         </div>
-}
+                        }
                     </ReactCssTransitionGroup>
                 </div>
             );
