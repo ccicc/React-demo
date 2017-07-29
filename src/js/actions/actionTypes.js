@@ -16,6 +16,7 @@ export const COUNTER_TIMEOUT_OVER = "COUNTER_TIMEOUT_OVER";
 export const TODO_ADD = "TODO_ADD";
 export const TODO_COMPLETED = "TODO_COMPLETED";
 export const TODO_DELETE = "TODO_DELETE";
+export const TODO_EDITOR = "TODO_EDITOR";
 
 export const TODO_SHOW_ALL = "TODO_SHOW_ALL";
 export const TODO_SHOW_COMPLETED = "TODO_SHOW_COMPLETED";

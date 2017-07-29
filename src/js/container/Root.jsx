@@ -7,6 +7,7 @@ import routes from './../routes';
 import 'styles/normalize.scss';
 import 'styles/font.scss';
 import 'styles/app.scss';
+import 'styles/animation.scss'
 
 const Root = (props) => {
     return (

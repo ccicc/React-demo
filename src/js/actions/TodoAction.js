@@ -2,6 +2,7 @@ import {
     TODO_ADD,
     TODO_COMPLETED,
     TODO_DELETE,
+    TODO_EDITOR,
     TODO_SHOW_ALL,
     TODO_SHOW_COMPLETED,
     TODO_SHOW_ACTIVE
@@ -20,6 +21,12 @@ export const onTodoCompleted = (id) => ({
 export const onTodoDelete = (id) => ({
     type: TODO_DELETE,
     id: id
+});
+
+export const onTodoEditor = (id,text) => ({
+    type: TODO_EDITOR,
+    id: id,
+    content: text
 });
 
 export const onTodoShowAll = () => ({type: TODO_SHOW_ALL});

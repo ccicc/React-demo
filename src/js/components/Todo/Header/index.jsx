@@ -19,7 +19,9 @@ export default class Header extends React.Component{
             <div className={styles.root}>
                 <h1 className={styles.title}>记事本</h1>
                 <TextInput
+                    newTodo
                     onSave = {this.handlerSave}
+                    placeholder = "输入待办事项"
                 />
             </div>
         )

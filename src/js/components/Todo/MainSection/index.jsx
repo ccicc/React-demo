@@ -1,7 +1,8 @@
 import React from 'react';
+import styles from './index.scss';
+
 import {Switch} from 'antd-mobile';
 import {createForm} from 'rc-form';
-import styles from './index.scss';
 import TodoItem from './TodoItem';
 import Footer from './Footer';
 

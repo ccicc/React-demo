@@ -4,6 +4,7 @@ import {
     TODO_ADD,
     TODO_COMPLETED,
     TODO_DELETE,
+    TODO_EDITOR,
     TODO_SHOW_ALL,
     TODO_SHOW_COMPLETED,
     TODO_SHOW_ACTIVE
@@ -29,12 +30,22 @@ function todoItems(state=initState,action){
             ];
         case TODO_COMPLETED:
             return state.map(item => 
-                item.id === action.id ? 
-                {...item,completed: !item.completed} :
+                item.id === action.id 
+                ? 
+                {...item,completed: !item.completed} 
+                :
                 item
             );
         case TODO_DELETE:
             return state.filter(item => item.id !== action.id);
+        case TODO_EDITOR:
+            return state.map(item => 
+                item.id === action.id && item.content !== action.content
+                ?
+                {...item,content: action.content}
+                :
+                item
+            );
         default:
             return state;
     }

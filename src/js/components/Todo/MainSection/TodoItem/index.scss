@@ -2,6 +2,7 @@
     position: relative;
     border-bottom: 1px solid #ccc;
     padding-left:0.6rem;
+    overflow-x: hidden;
 }
 .root:last-child{
     border: none;
@@ -67,4 +68,32 @@
 .contentCompleted:after{
     transform: scaleX(1);
     transform-origin: center left;
+}
+
+.btns{
+    display: flex;
+    flex-flow: row-reverse nowrap;
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.deleteBtn,.editorBtn,.cancelBtn{
+    border: none;
+    outline: none;
+    padding: 0 0.3rem;
+    color: #f5f5f5;
+}
+
+.deleteBtn{
+    background: #ff6666;
+}
+.editorBtn{
+    background: #66cc99;
+}
+.cancelBtn{
+    background: #999999;
 }

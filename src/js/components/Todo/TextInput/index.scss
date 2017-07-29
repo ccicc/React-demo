@@ -15,8 +15,13 @@
     &:focus,
     &:active{
         border-color: #1abc9c;
-        outline: none;
     }
+}
+
+.editor{
+    width: 100%;
+    font-size: 0.3rem;
+    padding: 20px 60px 20px 25px;
 }
 
 .btn{
