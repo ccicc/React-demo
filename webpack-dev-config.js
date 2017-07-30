@@ -122,20 +122,20 @@ module.exports = {
 
             {
                 test: /\.svg$/i,
-                loader: 'svg-sprite',
+                loader: 'svg-sprite-loader',
                 include: require.resolve('antd-mobile').replace(/warn\.js$/, '')
             }
         ]
     },
     resolve: {
         extensions: [
-            '*',
             '.web.js',
             '.js',
             '.jsx',
             '.css',
             '.scss',
             '.json',
+            '*'
         ],
         modules: [
             'node_modules', path.join(__dirname, '../node_modules')

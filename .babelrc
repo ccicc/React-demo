@@ -18,6 +18,7 @@
         ["import",{
             "style": "css",
             "libraryName": "antd-mobile"
-        }]
+        }],
+        "istanbul"
     ]
 }
