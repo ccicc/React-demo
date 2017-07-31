@@ -1,4 +1,5 @@
 import React from 'react';
+import propTypes from 'prop-types';
 import classnames from 'classnames';
 import styles from './index.scss';
 
@@ -20,8 +21,8 @@ export default class TextInput extends React.Component{
         });
     }
 
-    handlerSubmit = (val) => {
-        this.props.onSave(val.trim());
+    handlerSubmit = () => {
+        this.props.onSave(this.state.value.trim());
         this.props.newTodo && this.setState({
             value: ''
         });
@@ -55,7 +56,7 @@ export default class TextInput extends React.Component{
                     newTodo && 
                     <button
                         className={styles.btn}
-                        onClick={() => this.handlerSubmit(this.input.value)}
+                        onClick={() => this.handlerSubmit()}
                     >
                         +
                     </button>
@@ -64,3 +65,10 @@ export default class TextInput extends React.Component{
         )
     }
 }
+
+TextInput.propTypes = {
+    placeholder: propTypes.string,
+    text: propTypes.string,
+    newTodo: propTypes.bool,
+    onSave: propTypes.func.isRequired
+};

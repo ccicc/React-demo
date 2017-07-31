@@ -7,7 +7,7 @@ import {
 
 const initState = {
     seconds: 0,
-    status: 'stopeed'
+    status: 'stopped'
 };
 
 export default function timer(state=initState,action){

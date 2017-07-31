@@ -1,4 +1,5 @@
 import React from 'react';
+import propTypes from 'prop-types';
 import styles from './index.scss';
 
 import TextInput from './../TextInput';
@@ -27,3 +28,7 @@ export default class Header extends React.Component{
         )
     }
 }
+
+Header.propTypes = {
+    onTodoAdd: propTypes.func.isRequired
+};

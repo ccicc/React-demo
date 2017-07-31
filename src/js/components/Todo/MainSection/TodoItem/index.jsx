@@ -58,8 +58,7 @@ class TodoItem extends React.Component {
         if (editorBool) {
             element = (
                 <TextInput
-                    onSave=
-                    {(text) => this.handlerSave(text, todo.id)}
+                    onSave= {(text) => this.handlerSave(text, todo.id)}
                     text={todo.content}
                 />);
         } else {

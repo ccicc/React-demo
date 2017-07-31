@@ -1,4 +1,5 @@
 import React from 'react';
+import propTypes from 'prop-types';
 import styles from './index.scss';
 
 import Header from './Header';
@@ -45,3 +46,9 @@ export default class Todo extends React.Component{
         )
     }
 }
+
+Todo.propTypes = {
+    todoItems: propTypes.array.isRequired,
+    todoActions: propTypes.object.isRequired,
+    todoShow: propTypes.string.isRequired
+};
