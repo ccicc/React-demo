@@ -1,9 +1,10 @@
 import React from 'react';
+import propTypes from 'prop-types';
 import classnames from 'classnames';
 import styles from './index.scss';
 import ReactCssTransitionGroup from 'react-addons-css-transition-group';
-import touchFunc from './../touchFunc';
 
+import touchFunc from 'app/lib/touchFunc';
 import TextInput from './../../TextInput';
 
 class TodoItem extends React.Component {
@@ -17,13 +18,11 @@ class TodoItem extends React.Component {
 
     componentDidMount() {
         // 绑定滑动事件
-        touchFunc(this.label, 'left', this.handlerLeft);
-        touchFunc(this.label, 'long', this.handlerLeft);
+        touchFunc(this.label, 'left long', this.handlerLeft);
     }
 
     componentDidUpdate() {
-        this.label && touchFunc(this.label, 'left', this.handlerLeft);
-        this.label && touchFunc(this.label, 'long', this.handlerLeft);
+        this.label && touchFunc(this.label, 'left long', this.handlerLeft);
     }
 
     handlerLeft = () => {
@@ -126,5 +125,13 @@ class TodoItem extends React.Component {
         )
     }
 }
+
+TodoItem.propTypes = {
+    todo: propTypes.object.isRequired,
+    onTodoCompleted: propTypes.func.isRequired,
+    onTodoDelete: propTypes.func.isRequired,
+    onTodoEditor: propTypes.func.isRequired,
+    onTodoAdd: propTypes.func.isRequired
+};
 
 export default TodoItem;

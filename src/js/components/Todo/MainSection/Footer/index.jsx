@@ -1,4 +1,5 @@
 import React from 'react';
+import propTypes from 'prop-types';
 import {Modal} from 'antd-mobile';
 import styles from './index.scss';
 
@@ -56,6 +57,14 @@ class Footer extends React.Component{
             </div>
         )
     }
+}
+
+Footer.propTypes = {
+    onTodoShowAll: propTypes.func.isRequired,
+    onTodoShowCompleted: propTypes.func.isRequired,
+    onTodoShowActive: propTypes.func.isRequired,
+    selectedItems: propTypes.number.isRequired,
+    onClearSelected:propTypes.func.isRequired
 }
 
 export default Footer;
