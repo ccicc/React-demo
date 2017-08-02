@@ -29,6 +29,6 @@ export const onTodoEditor = (id,text) => ({
     content: text
 });
 
-export const onTodoShowAll = () => ({type: TODO_SHOW_ALL});
-export const onTodoShowCompleted = () => ({type: TODO_SHOW_COMPLETED});
-export const onTodoShowActive = () => ({type: TODO_SHOW_ACTIVE});
+export const onTodoShowAll = () => ({ type: TODO_SHOW_ALL });
+export const onTodoShowCompleted = () => ({ type: TODO_SHOW_COMPLETED });
+export const onTodoShowActive = () => ({ type: TODO_SHOW_ACTIVE });

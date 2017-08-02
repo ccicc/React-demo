@@ -8,6 +8,6 @@ const App = (props) => {
 
 App.propTypes = {
     children: propTypes.element.isRequired
-}
+};
 
 export default App;

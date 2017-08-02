@@ -2,13 +2,17 @@ import React from 'react';
 import propTypes from 'prop-types';
 import styles from './index.scss';
 
-export default class Counter extends React.Component{
-    constructor(props){
+export default class Counter extends React.Component {
+    constructor(props) {
         super(props);
     }
 
-    render(){
-        const {sum,timeout,asyncBool,onIncrement,onDecrement,onAsyncIncrement} = this.props;
+    render() {
+        const { 
+            sum, timeout, asyncBool, 
+            onIncrement, onDecrement, onAsyncIncrement 
+        } = this.props;
+
         return (
             <div className={styles.root}>
                 <div className={styles.wrapper}>
@@ -40,7 +44,7 @@ export default class Counter extends React.Component{
                     </div>
                 </div>
             </div>
-        )
+        );
     }
 }
 

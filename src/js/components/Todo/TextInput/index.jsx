@@ -3,15 +3,15 @@ import propTypes from 'prop-types';
 import classnames from 'classnames';
 import styles from './index.scss';
 
-export default class TextInput extends React.Component{
-    constructor(props){
+export default class TextInput extends React.Component {
+    constructor(props) {
         super(props);
         this.state = {
             value: this.props.text || ''
-        }
+        };
     }
 
-    componentDidMount(){
+    componentDidMount() {
         this.input.focus();
     }
 
@@ -34,8 +34,8 @@ export default class TextInput extends React.Component{
         }
     }
 
-    render(){
-        const {onSave,newTodo,placeholder,text} = this.props;
+    render() {
+        const { onSave, newTodo, placeholder, text } = this.props;
         return (
             <div className={classnames({
                 [styles.root]: newTodo
@@ -62,7 +62,7 @@ export default class TextInput extends React.Component{
                     </button>
                 }
             </div>
-        )
+        );
     }
 }
 

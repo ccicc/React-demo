@@ -19,4 +19,4 @@ export default (
         <Route path="/Complex" component={Complex} />
         <Route path="/async" component={Async} />
     </Route>
-)
+);

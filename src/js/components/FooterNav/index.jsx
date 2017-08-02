@@ -3,12 +3,12 @@ import styles from './index.scss';
 
 import NavLink from './NavLink';
 
-export default class FooterNav extends React.Component{
-    constructor(props){
+export default class FooterNav extends React.Component {
+    constructor(props) {
         super(props);
     }
 
-    render(){
+    render() {
         return(
             <div className={`${styles.root} ver-center fixed-bottom`}>
                 <NavLink
@@ -37,6 +37,6 @@ export default class FooterNav extends React.Component{
                     activeName={styles.iconFour}
                 />
             </div>
-        )
+        );
     }
 };

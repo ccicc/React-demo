@@ -28,7 +28,7 @@ module.exports = {
         rules: [
             {
                 test: /\.(js|jsx)$/,
-                use: 'babel-loader',
+                use: [ 'babel-loader', 'eslint-loader' ],
                 exclude: /node_modules/
             }, 
             // 组件私有样式
@@ -62,9 +62,11 @@ module.exports = {
                 use: [
                     {
                         loader: 'style-loader'
-                    }, {
+                    }, 
+                    {
                         loader: 'css-loader'
-                    }, {
+                    }, 
+                    {
                         loader: 'postcss-loader',
                         options: {
                             config: {
@@ -81,9 +83,11 @@ module.exports = {
                 use: [
                     {
                         loader: 'style-loader'
-                    }, {
+                    }, 
+                    {
                         loader: 'css-loader'
-                    }, {
+                    }, 
+                    {
                         loader: 'postcss-loader',
                         options: {
                             config: {
@@ -164,4 +168,4 @@ module.exports = {
             }
         })
     ]
-}
+};

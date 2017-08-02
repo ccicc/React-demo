@@ -5,27 +5,27 @@ import styles from './index.scss';
 import Header from './Header';
 import MainSection from './MainSection';
 
-export default class Todo extends React.Component{
-    constructor(props){
+export default class Todo extends React.Component {
+    constructor(props) {
         super(props);
     }
 
     onClearSelected = () => {
-        const {todoActions,todoItems} = this.props;
+        const { todoActions, todoItems } = this.props;
         todoItems.filter(item => item.completed).forEach(item => {
             todoActions.onTodoDelete(item.id);
-        })
+        });
     }
 
     onCompletedAll = () => {
-        const {todoItems,todoActions} = this.props;
+        const { todoItems, todoActions } = this.props;
         todoItems.forEach(item => {
             todoActions.onTodoCompleted(item.id);
         }); 
     }
 
-    render(){
-        const {todoItems,todoActions,todoShow} = this.props;
+    render() {
+        const { todoItems, todoActions, todoShow } = this.props;
         const selectedItems = todoItems.filter(item => item.completed).length;
         return (
             <div className={styles.root}>
@@ -43,7 +43,7 @@ export default class Todo extends React.Component{
                     />
                 </div>
             </div>
-        )
+        );
     }
 }
 

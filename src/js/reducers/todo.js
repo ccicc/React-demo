@@ -1,4 +1,4 @@
-import {combineReducers} from 'redux';
+import { combineReducers } from 'redux';
 
 import {
     TODO_ADD,
@@ -11,48 +11,50 @@ import {
 } from './../actions/actionTypes';
 
 
-const initState = [{
-    content: 'hello,world',
-    completed: false,
-    id: 0
-}];
+const initState = [ 
+    {
+        content: 'hello,world',
+        completed: false,
+        id: 0
+    } 
+];
 
-function todoItems(state=initState,action){
-    switch(action.type){
+function todoItems(state=initState, action) {
+    switch(action.type) {
         case TODO_ADD:
             return [
                 ...state,
                 {
                     content: action.content,
                     completed: false,
-                    id: state.reduce((maxId,item) => Math.max(maxId,item.id),-1) + 1
+                    id: state.reduce((maxId, item) => Math.max(maxId, item.id), -1) + 1
                 }
             ];
         case TODO_COMPLETED:
             return state.map(item => 
                 item.id === action.id 
-                ? 
-                {...item,completed: !item.completed} 
-                :
-                item
+                    ? 
+                    { ...item, completed: !item.completed } 
+                    :
+                    item
             );
         case TODO_DELETE:
             return state.filter(item => item.id !== action.id);
         case TODO_EDITOR:
             return state.map(item => 
                 item.id === action.id && item.content !== action.content
-                ?
-                {...item,content: action.content}
-                :
-                item
+                    ?
+                    { ...item, content: action.content }
+                    :
+                    item
             );
         default:
             return state;
     }
 }
 
-function todoShow(state='SHOW_ALL',action){
-    switch(action.type){
+function todoShow(state='SHOW_ALL', action) {
+    switch(action.type) {
         case TODO_SHOW_ALL:
             return state = "SHOW_ALL";
         case TODO_SHOW_COMPLETED:

@@ -13,7 +13,7 @@ class TodoItem extends React.Component {
         this.state = {
             btnsShow: false,
             editorBool: false
-        }
+        };
     }
 
     componentDidMount() {
@@ -26,27 +26,25 @@ class TodoItem extends React.Component {
     }
 
     handlerLeft = () => {
-        this.setState({ btnsShow: true })
+        this.setState({ btnsShow: true });
     }
 
     handlerCancel = () => {
-        this.setState({ btnsShow: false })
+        this.setState({ btnsShow: false });
     }
 
     handlerEditor = () => {
-        this.setState({ editorBool: true, btnsShow: false })
+        this.setState({ editorBool: true, btnsShow: false });
     }
 
     handlerSave = (text, id) => {
         if (text.length === 0) {
-            this
-                .props
-                .onTodoDelete(id);
+            this.props.onTodoDelete(id);
         } else {
             text !== this.props.todo.content &&
                 this.props.onTodoEditor(id, text);
         }
-        this.setState({ editorBool: false })
+        this.setState({ editorBool: false });
     }
 
     render() {
@@ -122,7 +120,7 @@ class TodoItem extends React.Component {
                     {element}
                 </div>
             </ReactCssTransitionGroup>
-        )
+        );
     }
 }
 

@@ -5,13 +5,13 @@ import moment from 'moment';
 
 import styles from './index.scss';
 
-export default class Timer extends React.Component{
-    constructor(props){
+export default class Timer extends React.Component {
+    constructor(props) {
         super(props);
     }
 
-    render(){
-        const {seconds,status} = this.props;
+    render() {
+        const { seconds, status } = this.props;
         const classes = classNames({
             [`${styles.status}`]: true,
             [`${styles.start}`]: status === 'staring',
@@ -39,7 +39,7 @@ export default class Timer extends React.Component{
                     disabled={status === 'reset'}
                 >重置</button>
             </div>
-        )
+        );
     }
 }
 

@@ -47,7 +47,7 @@ class MainSection extends React.Component {
                     onClearSelected={onClearSelected}
                 />
             </div>
-        )
+        );
     }
 }
 
