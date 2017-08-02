@@ -3,14 +3,10 @@ import propTypes from 'prop-types';
 import styles from './index.scss';
 
 export default class Counter extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
-        const { 
-            sum, timeout, asyncBool, 
-            onIncrement, onDecrement, onAsyncIncrement 
+        const {
+            sum, timeout, asyncBool,
+            onIncrement, onDecrement, onAsyncIncrement,
         } = this.props;
 
         return (
@@ -28,13 +24,13 @@ export default class Counter extends React.Component {
                         >-</button>
                     </div>
                     <div>
-                        <button 
+                        <button
                             onClick={sum % 2 === 0 ? onIncrement : null}
                             className={styles.even}
                         >偶数+1</button>
                     </div>
                     <div>
-                        <button 
+                        <button
                             onClick={onAsyncIncrement}
                             className={styles.async}
                             disabled={asyncBool}
@@ -54,5 +50,5 @@ Counter.propTypes = {
     asyncBool: propTypes.bool.isRequired,
     onIncrement: propTypes.func.isRequired,
     onDecrement: propTypes.func.isRequired,
-    onAsyncIncrement: propTypes.func.isRequired
+    onAsyncIncrement: propTypes.func.isRequired,
 };

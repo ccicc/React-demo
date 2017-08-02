@@ -6,10 +6,6 @@ import moment from 'moment';
 import styles from './index.scss';
 
 export default class Timer extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         const { seconds, status } = this.props;
         const classes = classNames({
@@ -23,17 +19,17 @@ export default class Timer extends React.Component {
                     {moment(seconds * 1000).format('mm:ss')}
                     <span className={classes}>{status}</span>
                 </p>
-                <button 
+                <button
                     onClick={this.props.onStart} 
                     className={styles.btn}
                     disabled={status === 'staring'}
                 >开始</button>
-                <button 
+                <button
                     onClick={this.props.onStop} 
                     className={styles.btn}
                     disabled={status !== 'staring'}
                 >停止</button>
-                <button 
+                <button
                     onClick={this.props.onReset}
                     className={styles.btn}
                     disabled={status === 'reset'}
@@ -48,5 +44,5 @@ Timer.propTypes = {
     status: propTypes.string.isRequired,
     onStart: propTypes.func.isRequired,
     onStop: propTypes.func.isRequired,
-    onReset: propTypes.func.isRequired
+    onReset: propTypes.func.isRequired,
 };

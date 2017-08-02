@@ -5,6 +5,6 @@ import { watchCounter } from './counter';
 export default function* rootSaga() {
     yield [
         fork(watchTimer),
-        fork(watchCounter)
+        fork(watchCounter),
     ];
 }

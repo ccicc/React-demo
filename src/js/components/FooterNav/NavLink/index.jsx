@@ -6,14 +6,14 @@ import styles from './index.scss';
 export default class NavLink extends React.Component {
     render() {
         const { linkName, pathUrl, iconName, activeName, ...rest } = this.props;
-        return(
+        return (
             <Link
                 {...rest}
                 to={pathUrl}
                 activeClassName={activeName}
                 className={styles.root}
             >
-                <i className={`${styles.icon} ${iconName}`}></i>
+                <i className={`${styles.icon} ${iconName}`} />
                 <span className={styles.text}>{linkName}</span>
             </Link>
         );

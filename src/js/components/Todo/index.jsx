@@ -6,22 +6,18 @@ import Header from './Header';
 import MainSection from './MainSection';
 
 export default class Todo extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     onClearSelected = () => {
         const { todoActions, todoItems } = this.props;
-        todoItems.filter(item => item.completed).forEach(item => {
-            todoActions.onTodoDelete(item.id);
-        });
+        todoItems.filter(item => item.completed).forEach(item =>
+            todoActions.onTodoDelete(item.id),
+        );
     }
 
     onCompletedAll = () => {
         const { todoItems, todoActions } = this.props;
-        todoItems.forEach(item => {
-            todoActions.onTodoCompleted(item.id);
-        }); 
+        todoItems.forEach(item =>
+            todoActions.onTodoCompleted(item.id)
+        );
     }
 
     render() {
@@ -30,16 +26,16 @@ export default class Todo extends React.Component {
         return (
             <div className={styles.root}>
                 <div className={styles.wrap}>
-                    <Header 
-                        onTodoAdd = {todoActions.onTodoAdd}
+                    <Header
+                        onTodoAdd={todoActions.onTodoAdd}
                     />
                     <MainSection
-                        todoItems = {todoItems}
-                        todoShow = {todoShow}
-                        todoActions = {todoActions}
-                        selectedItems = {selectedItems}
-                        onClearSelected = {this.onClearSelected}
-                        onCompletedAll = {this.onCompletedAll}
+                        todoItems={todoItems}
+                        todoShow={todoShow}
+                        todoActions={todoActions}
+                        selectedItems={selectedItems}
+                        onClearSelected={this.onClearSelected}
+                        onCompletedAll={this.onCompletedAll}
                     />
                 </div>
             </div>

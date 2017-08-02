@@ -4,12 +4,8 @@ import styles from './index.scss';
 import NavLink from './NavLink';
 
 export default class FooterNav extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
-        return(
+        return (
             <div className={`${styles.root} ver-center fixed-bottom`}>
                 <NavLink
                     pathUrl="/"
@@ -39,4 +35,4 @@ export default class FooterNav extends React.Component {
             </div>
         );
     }
-};
+}

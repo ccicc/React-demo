@@ -5,28 +5,28 @@ import {
     TODO_EDITOR,
     TODO_SHOW_ALL,
     TODO_SHOW_COMPLETED,
-    TODO_SHOW_ACTIVE
+    TODO_SHOW_ACTIVE,
 } from './actionTypes';
 
-export const onTodoAdd = (text) => ({
+export const onTodoAdd = text => ({
     type: TODO_ADD,
-    content: text
+    content: text,
 });
 
-export const onTodoCompleted = (id) => ({
+export const onTodoCompleted = id => ({
+    id,
     type: TODO_COMPLETED,
-    id: id
 });
 
-export const onTodoDelete = (id) => ({
+export const onTodoDelete = id => ({
+    id,
     type: TODO_DELETE,
-    id: id
 });
 
-export const onTodoEditor = (id,text) => ({
+export const onTodoEditor = (id, text) => ({
+    id,
     type: TODO_EDITOR,
-    id: id,
-    content: text
+    content: text,
 });
 
 export const onTodoShowAll = () => ({ type: TODO_SHOW_ALL });

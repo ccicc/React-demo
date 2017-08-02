@@ -2,7 +2,7 @@ import {
     START,
     STOP,
     RESET,
-    TIMER
+    TIMER,
 } from './actionTypes';
 
 export const onStart = () => ({ type: START });

@@ -12,7 +12,7 @@ class General extends React.Component {
         return (
             <div className="wrapper">
                 <Counter {...stateCount} {...countActions} {...stateCountAsync}/>
-                <FooterNav/>
+                <FooterNav />
             </div>
         );
     }
@@ -20,13 +20,13 @@ class General extends React.Component {
 
 General.propTypes = {
     stateCount: propTypes.object.isRequired,
-    countActions: propTypes.object.isRequired
+    countActions: propTypes.object.isRequired,
 };
 
 function mapStateToProps(state) {
     return {
         stateCount: state.counter,
-        stateCountAsync: state.counterAsync
+        stateCountAsync: state.counterAsync,
     };
 }
 

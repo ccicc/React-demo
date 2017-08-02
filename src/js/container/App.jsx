@@ -1,4 +1,3 @@
-import React from 'react';
 import propTypes from 'prop-types';
 
 const App = (props) => {
@@ -7,7 +6,7 @@ const App = (props) => {
 };
 
 App.propTypes = {
-    children: propTypes.element.isRequired
+    children: propTypes.element.isRequired,
 };
 
 export default App;

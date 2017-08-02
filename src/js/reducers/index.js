@@ -9,7 +9,7 @@ const rootReducer = combineReducers({
     timer,
     counter,
     counterAsync,
-    todo
+    todo,
 });
 
 export default rootReducer;

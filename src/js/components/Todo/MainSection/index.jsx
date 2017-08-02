@@ -1,16 +1,13 @@
 import React from 'react';
-import styles from './index.scss';
-
+import propTypes from 'prop-types';
 import { Switch } from 'antd-mobile';
 import { createForm } from 'rc-form';
+
+import styles from './index.scss';
 import TodoItem from './TodoItem';
 import Footer from './Footer';
 
 class MainSection extends React.Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         const {
             todoItems,
@@ -50,5 +47,14 @@ class MainSection extends React.Component {
         );
     }
 }
+
+MainSection.propTypes = {
+    todoItems: propTypes.arrayOf(propTypes.object),
+    todoActions: propTypes.object.isRequried,
+    todoShow: propTypes.string.isRequired,
+    selectedItems: propTypes.number.isRequired,
+    onClearSelected: propTypes.func.isRequired,
+    onCompletedAll: propTypes.func.isRequired
+};
 
 export default createForm()(MainSection);

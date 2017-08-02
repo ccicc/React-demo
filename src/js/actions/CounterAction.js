@@ -3,7 +3,7 @@ import {
     COUNTER_DECREMENT,
     COUNTER_ASYNC,
     COUNTER_TIMEOUT_DOWN,
-    COUNTER_TIMEOUT_OVER
+    COUNTER_TIMEOUT_OVER,
 } from './actionTypes';
 
 export const onIncrement = () => ({ type: COUNTER_INCREMENT });

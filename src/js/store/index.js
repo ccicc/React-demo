@@ -13,9 +13,8 @@ const configureStore = (preloadedState) => {
         preloadedState,
         compose(
             applyMiddleware(sagaMiddleware, createLogger)
-        )
+        ),
     );
-    
     store.runSaga = sagaMiddleware.run;
     return store;
 };

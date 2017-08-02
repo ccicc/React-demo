@@ -12,15 +12,15 @@ class Simple extends React.Component {
     render() {
         const {
             actionsTimer,
-            stateTimer
+            stateTimer,
         } = this.props;
-        return(
+        return (
             <div className="wrapper">
                 <Timer
                     {...stateTimer}
                     {...actionsTimer}
                 />
-                <FooterNav/>
+                <FooterNav />
             </div>
         );
     }
@@ -28,12 +28,12 @@ class Simple extends React.Component {
 
 Simple.propTypes = {
     actionsTimer: propTypes.object.isRequired,
-    stateTimer: propTypes.object.isRequired
+    stateTimer: propTypes.object.isRequired,
 };
 
 function mapStateToProps(state) {
     return {
-        stateTimer: state.timer
+        stateTimer: state.timer,
     };
 }
 
@@ -45,5 +45,5 @@ function mapDispatchToProps(dispatch) {
 
 export default connect(
     mapStateToProps,
-    mapDispatchToProps
+    mapDispatchToProps,
 )(Simple);

@@ -1,8 +1,8 @@
 import React from 'react';
 import propTypes from 'prop-types';
+import ReactCssTransitionGroup from 'react-addons-css-transition-group';
 import classnames from 'classnames';
 import styles from './index.scss';
-import ReactCssTransitionGroup from 'react-addons-css-transition-group';
 
 import touchFunc from 'app/lib/touchFunc';
 import TextInput from './../../TextInput';
@@ -49,13 +49,13 @@ class TodoItem extends React.Component {
 
     render() {
         let element;
-        const { todo, onTodoCompleted, onTodoDelete, onTodoAdd } = this.props;
+        const { todo, onTodoCompleted, onTodoDelete } = this.props;
         const { btnsShow, editorBool } = this.state;
 
         if (editorBool) {
             element = (
                 <TextInput
-                    onSave= {(text) => this.handlerSave(text, todo.id)}
+                    onSave={text => this.handlerSave(text, todo.id)}
                     text={todo.content}
                 />);
         } else {
@@ -75,7 +75,7 @@ class TodoItem extends React.Component {
                         className={classnames({
                             [styles.text]: true,
                             [styles.completed]: todo.completed,
-                            "text-overflow": true
+                            'text-overflow': true
                         })}
                     >
                         <span
@@ -92,7 +92,10 @@ class TodoItem extends React.Component {
                         transitionEnterTimeout={500}
                         transitionLeaveTimeout={300}>
                         {btnsShow && <div key={todo.id} className={styles.btns}>
-                            <button className={styles.deleteBtn} onClick={() => onTodoDelete(todo.id)}>
+                            <button
+                                className={styles.deleteBtn} 
+                                onClick={() => onTodoDelete(todo.id)}
+                            >
                                 删除
                             </button>
                             <button className={styles.editorBtn} onClick={this.handlerEditor}>
@@ -112,7 +115,7 @@ class TodoItem extends React.Component {
             <ReactCssTransitionGroup
                 component="li"
                 transitionName="todoItem"
-                transitionAppear={true}
+                transitionAppear
                 transitionAppearTimeout={300}
                 transitionEnter={false}
                 transitionLeave={false}>
@@ -129,7 +132,6 @@ TodoItem.propTypes = {
     onTodoCompleted: propTypes.func.isRequired,
     onTodoDelete: propTypes.func.isRequired,
     onTodoEditor: propTypes.func.isRequired,
-    onTodoAdd: propTypes.func.isRequired
 };
 
 export default TodoItem;

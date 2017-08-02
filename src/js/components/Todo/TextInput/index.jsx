@@ -29,31 +29,31 @@ export default class TextInput extends React.Component {
     }
 
     handlerBlur = (e) => {
-        if(!this.props.newTodo){
+        if (!this.props.newTodo) {
             this.props.onSave(e.target.value);
         }
     }
 
     render() {
-        const { onSave, newTodo, placeholder, text } = this.props;
+        const { newTodo, placeholder } = this.props;
         return (
             <div className={classnames({
                 [styles.root]: newTodo
             })}>
-                <input 
+                <input
                     type="text"
-                    ref = {input => this.input = input}
-                    value = {this.state.value}
-                    className = {classnames({
+                    ref={input => this.input = input}
+                    value={this.state.value}
+                    className={classnames({
                         [styles.editor]: !newTodo,
                         [styles.input]: true
                     })}
-                    onChange = {this.handlerChange}
-                    onBlur = {this.handlerBlur}
+                    onChange={this.handlerChange}
+                    onBlur={this.handlerBlur}
                     placeholder={placeholder}
                 />
                 {
-                    newTodo && 
+                    newTodo &&
                     <button
                         className={styles.btn}
                         onClick={() => this.handlerSubmit()}

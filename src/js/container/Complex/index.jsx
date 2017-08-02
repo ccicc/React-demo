@@ -9,25 +9,25 @@ import * as todoActionCreators from './../../actions/TodoAction';
 class Complex extends React.Component {
     render() {
         const { todoItems, todoShow, todoActions } = this.props;
-        return(
+        return (
             <div className="wrapper">
-                <Todo 
-                    todoItems = {todoItems}
-                    todoShow = {todoShow}
-                    todoActions = {todoActions}
+                <Todo
+                    todoItems={todoItems}
+                    todoShow={todoShow}
+                    todoActions={todoActions}
                 />
-                <FooterNav/>
+                <FooterNav />
             </div>
         );
     }
 }
 
-const getTodoItems = (state) => state.todo.todoItems;
-const getTodoShow = (state) => state.todo.todoShow;
+const getTodoItems = state => state.todo.todoItems;
+const getTodoShow = state => state.todo.todoShow;
 const showTodoFilter = createSelector(
-    [ getTodoItems, getTodoShow ],
+    [getTodoItems, getTodoShow],
     (todoItems, todoShow) => {
-        switch(todoShow) {
+        switch (todoShow) {
             case 'SHOW_ALL':
                 return todoItems;
             case 'SHOW_COMPLETED':
@@ -37,13 +37,13 @@ const showTodoFilter = createSelector(
             default:
                 return todoItems;
         }
-    }
+    },
 );
 
 function mapStateToProps(state) {
     return {
         todoItems: showTodoFilter(state),
-        todoShow: state.todo.todoShow
+        todoShow: state.todo.todoShow,
     };
 }
 
@@ -55,5 +55,5 @@ function mapDispatchToProps(dispatch) {
 
 export default connect(
     mapStateToProps,
-    mapDispatchToProps
+    mapDispatchToProps,
 )(Complex);

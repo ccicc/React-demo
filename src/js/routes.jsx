@@ -1,7 +1,7 @@
 import React from 'react';
 import {
     Route,
-    IndexRoute
+    IndexRoute,
 } from 'react-router';
 
 import {
@@ -9,7 +9,7 @@ import {
     Simple,
     General,
     Complex,
-    Async
+    Async,
 } from './container';
 
 export default (
