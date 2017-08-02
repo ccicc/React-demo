@@ -11,22 +11,22 @@ const initState = {
 
 function counterAsync(state = initState, action) {
     switch(action.type) {
-    case COUNTER_ASYNC:
-        return { ...state, asyncBool: true };
-    case COUNTER_TIMEOUT_DOWN:
-        return {
-            ...state,
-            asyncBool: true,
-            timeout: state.timeout - 1
-        };
-    case COUNTER_TIMEOUT_OVER:
-        return {
-            ...state,
-            asyncBool: false,
-            timeout: 3
-        };
-    default: 
-        return state;
+        case COUNTER_ASYNC:
+            return { ...state, asyncBool: true };
+        case COUNTER_TIMEOUT_DOWN:
+            return {
+                ...state,
+                asyncBool: true,
+                timeout: state.timeout - 1
+            };
+        case COUNTER_TIMEOUT_OVER:
+            return {
+                ...state,
+                asyncBool: false,
+                timeout: 3
+            };
+        default: 
+            return state;
     }
 }
 

@@ -10,12 +10,12 @@ const initState = {
 
 function counter(state=initState, action) {
     switch(action.type) {
-    case COUNTER_INCREMENT:
-        return { sum: state.sum + 1 };
-    case COUNTER_DECREMENT:
-        return { sum: state.sum - 1 };
-    default: 
-        return state;
+        case COUNTER_INCREMENT:
+            return { sum: state.sum + 1 };
+        case COUNTER_DECREMENT:
+            return { sum: state.sum - 1 };
+        default: 
+            return state;
     }
 }
 

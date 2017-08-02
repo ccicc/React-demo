@@ -42,7 +42,7 @@ function todoItems(state=initState, action) {
             return state.filter(item => item.id !== action.id);
         case TODO_EDITOR:
             return state.map(item => 
-                item.id === action.id && item.content !== action.content
+                item.id === action.id && item.content !== action.content 
                     ?
                     { ...item, content: action.content }
                     :

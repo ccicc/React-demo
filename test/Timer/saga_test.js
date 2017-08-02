@@ -1,6 +1,6 @@
-import {assert} from 'chai';
-import {createMockTask} from 'redux-saga/utils';
-import {delay} from 'redux-saga';
+import { assert } from 'chai';
+import { createMockTask } from 'redux-saga/utils';
+import { delay } from 'redux-saga';
 import {
     put,
     call,
@@ -11,7 +11,7 @@ import {
 
 import * as types from 'app/actions/actionTypes';
 import * as timerActions from 'app/actions/TimerAction';
-import {timer, watchTimer} from 'app/saga/timer';
+import { timer, watchTimer } from 'app/saga/timer';
 
 describe('timer---sagas', () => {
     it('timer-saga', () => {
@@ -32,7 +32,7 @@ describe('timer---sagas', () => {
         let mockTask = createMockTask();
         mockTask.isRunning(true);
         next = gen.next(mockTask);
-        assert.deepEqual(next.value, take([types.STOP, types.RESET]));
+        assert.deepEqual(next.value, take([ types.STOP, types.RESET ]));
 
         next = gen.next();
         assert.deepEqual(next.value, cancel(mockTask));

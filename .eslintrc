@@ -22,7 +22,8 @@
     "rules": {
         // stylistic issues
         "indent": [1, 4, {
-            "SwitchCase": 1
+            "SwitchCase": 1,
+            "flatTernaryExpressions": true
         }],
         "semi": [1, "always"],
         "array-bracket-spacing": [1, "always"],
@@ -34,7 +35,11 @@
         "space-before-function-paren": [1, "never"],
         "space-before-blocks": [1, "always"],
         "key-spacing": 1,
-        "func-call-spacing": [1, "never"]
+        "func-call-spacing": [1, "never"],
+        "generator-star-spacing": [1, {
+            "after": true,
+            "before": false
+        }]
     }
 
 }

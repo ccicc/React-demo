@@ -28,14 +28,14 @@ const showTodoFilter = createSelector(
     [ getTodoItems, getTodoShow ],
     (todoItems, todoShow) => {
         switch(todoShow) {
-        case 'SHOW_ALL':
-            return todoItems;
-        case 'SHOW_COMPLETED':
-            return todoItems.filter(item => item.completed);
-        case 'SHOW_ACTIVE':
-            return todoItems.filter(item => !item.completed);
-        default:
-            return todoItems;
+            case 'SHOW_ALL':
+                return todoItems;
+            case 'SHOW_COMPLETED':
+                return todoItems.filter(item => item.completed);
+            case 'SHOW_ACTIVE':
+                return todoItems.filter(item => !item.completed);
+            default:
+                return todoItems;
         }
     }
 );

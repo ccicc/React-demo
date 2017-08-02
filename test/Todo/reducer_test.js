@@ -13,7 +13,7 @@ describe('todo---reducer', () => {
     };
     const initState = {
         todoShow: 'SHOW_ALL',
-        todoItems: [initTodoItem]
+        todoItems: [ initTodoItem ]
     };
 
     it('return initial state', () => {
@@ -31,11 +31,14 @@ describe('todo---reducer', () => {
             state, 
             {
                 todoShow: 'SHOW_ALL',
-                todoItems: [initTodoItem, {
-                    content: 'test',
-                    completed: false,
-                    id: 1
-                }]
+                todoItems: [ 
+                    initTodoItem,
+                    {
+                        content: 'test',
+                        completed: false,
+                        id: 1
+                    }
+                ]
             }
         );
     });
@@ -48,9 +51,7 @@ describe('todo---reducer', () => {
             state, 
             {
                 todoShow: 'SHOW_ALL',
-                todoItems: [{ ...initTodoItem,
-                    completed: true
-                }]
+                todoItems: [ { ...initTodoItem, completed: true } ]
             }
         );
     });
@@ -77,13 +78,10 @@ describe('todo---reducer', () => {
             state, 
             {
                 todoShow: 'SHOW_ALL',
-                todoItems: [{ ...initTodoItem,
-                    content: 'test'
-                }]
+                todoItems: [ { ...initTodoItem, content: 'test' } ]
             }
         );
     });
-
     it('TODO_SHOW_ALL', () => {
         const state = todo({}, {
             type: types.TODO_SHOW_ALL
@@ -92,7 +90,7 @@ describe('todo---reducer', () => {
             state, 
             {
                 todoShow: 'SHOW_ALL',
-                todoItems: [initTodoItem]
+                todoItems: [ initTodoItem ]
             }
         );
     });
@@ -104,7 +102,7 @@ describe('todo---reducer', () => {
             state, 
             {
                 todoShow: 'SHOW_COMPLETED',
-                todoItems: [initTodoItem]
+                todoItems: [ initTodoItem ]
             }
         );
     });
@@ -116,7 +114,7 @@ describe('todo---reducer', () => {
             state, 
             {
                 todoShow: 'SHOW_ACTIVE',
-                todoItems: [initTodoItem]
+                todoItems: [ initTodoItem ]
             }
         );
     });

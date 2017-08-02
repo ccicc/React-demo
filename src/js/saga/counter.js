@@ -1,4 +1,4 @@
-import {delay,takeEvery} from 'redux-saga';
+import { delay, takeEvery } from 'redux-saga';
 import {
     take,
     put,
@@ -11,17 +11,17 @@ import {
     onTimeoutOver
 } from './../actions/CounterAction';
 
-import {COUNTER_ASYNC} from './../actions/actionTypes';
+import { COUNTER_ASYNC } from './../actions/actionTypes';
 
-export function* counterAsync(){
-    for(let i = 0; i < 3;i++){
-        yield call(delay,1000);
+export function* counterAsync() {
+    for(let i = 0; i < 3;i++) {
+        yield call(delay, 1000);
         yield put(onTimeoutDown());
     }
     yield put(onIncrement());
     yield put(onTimeoutOver());
 }
 
-export function* watchCounter(){
-    yield takeEvery(COUNTER_ASYNC,counterAsync);
+export function* watchCounter() {
+    yield takeEvery(COUNTER_ASYNC, counterAsync);
 }
