@@ -20,12 +20,12 @@ export default class Timer extends React.Component {
                     <span className={classes}>{status}</span>
                 </p>
                 <button
-                    onClick={this.props.onStart} 
+                    onClick={this.props.onStart}
                     className={styles.btn}
                     disabled={status === 'staring'}
                 >开始</button>
                 <button
-                    onClick={this.props.onStop} 
+                    onClick={this.props.onStop}
                     className={styles.btn}
                     disabled={status !== 'staring'}
                 >停止</button>

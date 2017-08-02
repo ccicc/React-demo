@@ -25,5 +25,5 @@ NavLink.propTypes = {
     pathUrl: propTypes.string.isRequired,
     iconName: propTypes.string.isRequired,
     activeName: propTypes.string,
-    onlyActiveOnIndex: propTypes.oneOfType([ propTypes.string, propTypes.bool ])
+    onlyActiveOnIndex: propTypes.oneOfType([propTypes.string, propTypes.bool])
 };

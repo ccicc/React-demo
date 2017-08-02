@@ -30,7 +30,7 @@ export function* timer() {
 export function* watchTimer() {
     while (yield take(START)) {
         const bgTimer = yield fork(timer);
-        yield take([ STOP, RESET ]);
+        yield take([STOP, RESET]);
         yield cancel(bgTimer);
     }
 }

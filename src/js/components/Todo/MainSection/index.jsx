@@ -24,7 +24,7 @@ class MainSection extends React.Component {
                     {...getFieldProps('switch1', {
                         initialValue: todoItems.length === selectedItems && todoItems.length > 0,
                         valuePropName: 'checked'
-                    }) }
+                    })}
                     onChange={() => onCompletedAll()}
                     className={styles.toggle}
                 />

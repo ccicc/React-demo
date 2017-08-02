@@ -23,4 +23,4 @@ export default function timer(state = initState, action) {
         default:
             return state;
     }
-};
+}

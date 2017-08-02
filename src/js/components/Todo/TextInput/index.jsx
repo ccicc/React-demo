@@ -39,7 +39,8 @@ export default class TextInput extends React.Component {
         return (
             <div className={classnames({
                 [styles.root]: newTodo
-            })}>
+            })}
+            >
                 <input
                     type="text"
                     ref={input => this.input = input}

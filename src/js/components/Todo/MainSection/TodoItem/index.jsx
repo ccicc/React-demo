@@ -4,8 +4,10 @@ import ReactCssTransitionGroup from 'react-addons-css-transition-group';
 import classnames from 'classnames';
 import styles from './index.scss';
 
-import touchFunc from 'app/lib/touchFunc';
 import TextInput from './../../TextInput';
+/* eslint-disable */
+import touchFunc from 'app/lib/touchFunc';
+/* eslint-disable */ 
 
 class TodoItem extends React.Component {
     constructor(props) {
@@ -90,10 +92,11 @@ class TodoItem extends React.Component {
                     <ReactCssTransitionGroup
                         transitionName="todoItemBtns"
                         transitionEnterTimeout={500}
-                        transitionLeaveTimeout={300}>
+                        transitionLeaveTimeout={300}
+                    >
                         {btnsShow && <div key={todo.id} className={styles.btns}>
                             <button
-                                className={styles.deleteBtn} 
+                                className={styles.deleteBtn}
                                 onClick={() => onTodoDelete(todo.id)}
                             >
                                 删除
@@ -118,7 +121,8 @@ class TodoItem extends React.Component {
                 transitionAppear
                 transitionAppearTimeout={300}
                 transitionEnter={false}
-                transitionLeave={false}>
+                transitionLeave={false}
+            >
                 <div className={styles.root} key={todo.id}>
                     {element}
                 </div>

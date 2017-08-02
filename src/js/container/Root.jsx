@@ -4,10 +4,12 @@ import { Provider } from 'react-redux';
 
 import routes from './../routes';
 
+/* eslint-disable */ 
 import 'styles/normalize.scss';
 import 'styles/font.scss';
 import 'styles/app.scss';
 import 'styles/animation.scss';
+/* eslint-disable */ 
 
 const Root = (props) => {
     return (

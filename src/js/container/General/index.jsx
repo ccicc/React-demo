@@ -11,7 +11,7 @@ class General extends React.Component {
         const { stateCount, stateCountAsync, countActions } = this.props;
         return (
             <div className="wrapper">
-                <Counter {...stateCount} {...countActions} {...stateCountAsync}/>
+                <Counter {...stateCount} {...countActions} {...stateCountAsync} />
                 <FooterNav />
             </div>
         );
