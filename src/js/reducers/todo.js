@@ -31,7 +31,11 @@ function todoItems(state = initState, action) {
             ];
         case TODO_COMPLETED:
             return state.map(
-                item => item.id === action.id ? { ...state, completed: !item.completed } : item,
+                item => item.id === action.id
+                    ?
+                    { ...item, completed: !item.completed }
+                    :
+                    item
             );
         case TODO_DELETE:
             return state.filter(item => item.id !== action.id);
@@ -41,7 +45,7 @@ function todoItems(state = initState, action) {
                     ?
                     { ...item, content: action.content }
                     :
-                    item,
+                    item
             );
         default:
             return state;

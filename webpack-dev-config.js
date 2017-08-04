@@ -100,7 +100,16 @@ module.exports = {
             }, 
             
             {
-                test: /\.(otf|eot|svg|ttf|woff|woff2).*$/,
+                test: /\.svg$/i,
+                loader: 'svg-sprite-loader',
+                include: [
+                    require.resolve('antd-mobile').replace(/warn\.js$/, ''),
+                    path.resolve(__dirname, './src/fonts/icomoon.svg')
+                ]
+            },
+
+            {
+                test: /\.(otf|eot|ttf|woff|woff2).*$/,
                 use: [
                     {
                         loader: 'url-loader',
@@ -124,11 +133,6 @@ module.exports = {
                 exclude: /node_modules/
             },
 
-            {
-                test: /\.svg$/i,
-                loader: 'svg-sprite-loader',
-                include: require.resolve('antd-mobile').replace(/warn\.js$/, '')
-            }
         ]
     },
     resolve: {

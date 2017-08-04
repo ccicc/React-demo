@@ -50,8 +50,8 @@ class MainSection extends React.Component {
 
 MainSection.propTypes = {
     todoItems: propTypes.arrayOf(propTypes.object),
-    todoActions: propTypes.object.isRequried,
     todoShow: propTypes.string.isRequired,
+    todoActions: propTypes.object.isRequired,
     selectedItems: propTypes.number.isRequired,
     onClearSelected: propTypes.func.isRequired,
     onCompletedAll: propTypes.func.isRequired
