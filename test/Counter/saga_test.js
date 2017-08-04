@@ -6,7 +6,8 @@ import {
     take,
     call,
     put,
-    cancel
+    cancel,
+    takeEvery
 } from 'redux-saga/effects';
 
 import * as types from 'app/actions/actionTypes';
