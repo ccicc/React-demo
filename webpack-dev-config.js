@@ -104,7 +104,7 @@ module.exports = {
                 loader: 'svg-sprite-loader',
                 include: [
                     require.resolve('antd-mobile').replace(/warn\.js$/, ''),
-                    path.resolve(__dirname, './src/fonts/icomoon.svg')
+                    path.resolve(__dirname, './src')
                 ]
             },
 
