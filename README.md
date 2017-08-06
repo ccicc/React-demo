@@ -7,7 +7,7 @@
 npm install 
 npm start
 ```
-> 访问[http://localhost:8080](http://localhost:8080)`
+访问[http://localhost:8080](http://localhost:8080)
 
 # 启动测试
 
@@ -15,4 +15,4 @@ npm start
 npm test
 ```
 
-> 打开`coverage/chrome/index.html`查看测试覆盖率
+打开`coverage/chrome/index.html`查看测试覆盖率
