@@ -10,7 +10,7 @@
     ],
     "plugins":[
         ["transform-runtime",{
-            "helpers": false,
+            "helpers": true,
             "polyfill": true,
             "regenerator": true,
             "modulename": "babel-runtime"
