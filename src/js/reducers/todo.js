@@ -1,26 +1,30 @@
+// @flow
+
 import { combineReducers } from 'redux';
 
-import {
-    TODO_ADD,
-    TODO_COMPLETED,
-    TODO_DELETE,
-    TODO_EDITOR,
-    TODO_SHOW_ALL,
-    TODO_SHOW_COMPLETED,
-    TODO_SHOW_ACTIVE,
-} from './../actions/actionTypes';
+type ItemsState = Array<{
+    +content: string,
+    +completed: boolean,
+    +id: number
+}>;
+
+type ItemsAction =
+    | { type: 'TODO_ADD', content: string }
+    | { type: 'TODO_COMPLETED', id: number }
+    | { type: 'TODO_DELETE', id: number }
+    | { type: 'TODO_EDITOR', id: number, content: string};
 
 const initState = [
     {
         content: 'hello,world',
         completed: false,
         id: 0,
-    },
+    }
 ];
 
-function todoItems(state = initState, action) {
+function todoItems(state: ItemsState = initState, action: ItemsAction): ItemsState {
     switch (action.type) {
-        case TODO_ADD:
+        case 'TODO_ADD':
             return [
                 ...state,
                 {
@@ -29,7 +33,7 @@ function todoItems(state = initState, action) {
                     id: state.reduce((maxId, item) => Math.max(maxId, item.id), -1) + 1,
                 },
             ];
-        case TODO_COMPLETED:
+        case 'TODO_COMPLETED':
             return state.map(
                 item => item.id === action.id
                     ?
@@ -37,9 +41,9 @@ function todoItems(state = initState, action) {
                     :
                     item
             );
-        case TODO_DELETE:
+        case 'TODO_DELETE':
             return state.filter(item => item.id !== action.id);
-        case TODO_EDITOR:
+        case 'TODO_EDITOR':
             return state.map(
                 item => item.id === action.id && item.content !== action.content
                     ?
@@ -52,13 +56,23 @@ function todoItems(state = initState, action) {
     }
 }
 
-function todoShow(state = 'SHOW_ALL', action) {
+type ShowState =
+    | 'SHOW_ALL'
+    | 'SHOW_COMPLETED'
+    | 'SHOW_ACTIVE';
+
+type ShowActive =
+    | { type: 'TODO_SHOW_ALL' }
+    | { type: 'TODO_SHOW_COMPLETED' }
+    | { type: 'TODO_SHOW_ACTIVE' };
+
+function todoShow(state: ShowState = 'SHOW_ALL', action: ShowActive): ShowState {
     switch (action.type) {
-        case TODO_SHOW_ALL:
+        case 'TODO_SHOW_ALL':
             return state = 'SHOW_ALL';
-        case TODO_SHOW_COMPLETED:
+        case 'TODO_SHOW_COMPLETED':
             return state = 'SHOW_COMPLETED';
-        case TODO_SHOW_ACTIVE:
+        case 'TODO_SHOW_ACTIVE':
             return state = 'SHOW_ACTIVE';
         default:
             return state;

@@ -1,12 +1,15 @@
 {
     "presets":[
-        ["latest",{
-            "es2015": {
-                "loose": true
-            }
+        ["env",{
+            "target": {
+                "browser": ["ie >= 9", "last 2 Chrome version"]
+            },
+            "node": "current",
+            "loose": true
         }],
         "react",
-        "stage-0"
+        "stage-0",
+        "flow"
     ],
     "plugins":[
         ["transform-runtime",{

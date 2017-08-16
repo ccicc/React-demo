@@ -1,24 +1,30 @@
-import {
-    START,
-    STOP,
-    RESET,
-    TIMER,
-} from './../actions/actionTypes';
+// @flow
+
+type State = {
+    +seconds: number,
+    +status: 'staring' | 'stopped' | 'reset'
+};
+
+type Action =
+    | { type: 'START' }
+    | { type: 'STOP' }
+    | { type: 'RESET' }
+    | { type: 'TIMER' };
 
 const initState = {
     seconds: 0,
     status: 'stopped',
 };
 
-export default function timer(state = initState, action) {
+export default function timer(state: State = initState, action: Action): State {
     switch (action.type) {
-        case START:
+        case 'START':
             return { ...state, ...{ status: 'staring' } };
-        case STOP:
+        case 'STOP':
             return { ...state, ...{ status: 'stopped' } };
-        case RESET:
+        case 'RESET':
             return { ...state, ...{ seconds: 0, status: 'reset' } };
-        case TIMER:
+        case 'TIMER':
             return { ...state, ...{ seconds: state.seconds + 1 } };
         default:
             return state;

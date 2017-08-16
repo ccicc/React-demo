@@ -1,3 +1,5 @@
+// @flow
+
 import {
     TODO_ADD,
     TODO_COMPLETED,
@@ -8,22 +10,22 @@ import {
     TODO_SHOW_ACTIVE,
 } from './actionTypes';
 
-export const onTodoAdd = text => ({
+export const onTodoAdd = (text: string) => ({
     type: TODO_ADD,
     content: text,
 });
 
-export const onTodoCompleted = id => ({
+export const onTodoCompleted = (id: number) => ({
     id,
     type: TODO_COMPLETED,
 });
 
-export const onTodoDelete = id => ({
+export const onTodoDelete = (id: number) => ({
     id,
     type: TODO_DELETE,
 });
 
-export const onTodoEditor = (id, text) => ({
+export const onTodoEditor = (id: number, text: string) => ({
     id,
     type: TODO_EDITOR,
     content: text,

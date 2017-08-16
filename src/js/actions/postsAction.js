@@ -1,20 +1,40 @@
+// @flow
+
 import {
     REQUEST_POSTS,
     RECEIVE_POSTS,
     REQUEST_POSTS_FAILED,
 } from './actionTypes';
 
-export const onRequestPosts = () => ({
+export type Posts = {
+    id: number,
+    following: number,
+    login: string,
+    avatar_url: string,
+    html_url: string
+};
+
+export type Error = {
+    message: string
+};
+
+const onRequestPosts = () => ({
     type: REQUEST_POSTS
 });
 
-export const onReceivePosts = (posts, receiveAt) => ({
+const onReceivePosts = (posts: Posts, receiveAt: string) => ({
     type: RECEIVE_POSTS,
     posts,
-    receiveAt,
+    receiveAt
 });
 
-export const onRequestPostsFailed = error => ({
+const onRequestPostsFailed = (error: Error) => ({
     type: REQUEST_POSTS_FAILED,
     error
 });
+
+export {
+    onRequestPosts,
+    onReceivePosts,
+    onRequestPostsFailed
+};

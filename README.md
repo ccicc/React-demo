@@ -1,5 +1,4 @@
 # React Redux Demo
-> 简单的小`demo`
 
 # 启动项目
 
@@ -12,7 +11,7 @@ npm start
 # 启动测试
 
 ```
-npm test
+npm run test
 ```
 
 打开`coverage/chrome/index.html`查看测试覆盖率
