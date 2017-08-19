@@ -1,0 +1,21 @@
+/*************
+    全局变量
+**************/ 
+
+/* 字体 */ 
+$font-family-zh: "Helvetica Neue",Helvetica,"PingFang SC","Hiragino Sans GB","Microsoft YaHei","微软雅黑",Arial,sans-serif;
+$font-family-en: Arial, sans-serif !default;
+
+/* 盒模型 */ 
+$box-module: border-box !default;
+
+/* 颜色 */
+$body-bg: #f2f2f2;
+$body-color: #333;
+$main-color: #1abc9c;
+
+/* z-index */ 
+$z-50: 50;
+$z-100:100;
+$z-150: 150;
+$z-max: 99999;

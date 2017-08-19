@@ -1,0 +1,44 @@
+.todoItem-appear{
+    opacity: 0;
+    transform: translate(-100px,0);
+    transform: translate3d(-100px,0,0);
+}
+
+.todoItem-appear.todoItem-appear-active{
+    opacity: 1;
+    transform: translate(0,0);
+    transform: translate3d(0,0,0);
+    transition-property: transform,opacity;
+    transition-duration: 300ms;
+    transition-timing-function: ease-in-sine, linear;
+}
+
+.todoItemBtns-enter{
+    opacity: 0;
+    transform: translate(250px,0);
+    transform: translate3d(250px,0,0);
+}
+
+.todoItemBtns-enter.todoItemBtns-enter-active{
+    opacity: 1;
+    transform: translate(0,0);
+    transform: translate3d(0,0,0);
+    transition-property: transform,opacity;
+    transition-duration: 500ms;
+    transition-timing-function: ease-in-sine,linear;
+}
+
+.todoItemBtns-leave{
+    opacity: 1;
+    transform: translate(0,0);
+    transform: translate3d(0,0,0);
+}
+
+.todoItemBtns-leave.todoItemBtns-leave-active{
+    opacity: 0;
+    transform: translate(250px,0);
+    transform: translate3d(250px,0,0);
+    transition-property: opacity,transform;
+    transition-duration: 300ms;
+    transition-timing-function: ease-out-sine,linear;
+}
