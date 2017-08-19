@@ -163,7 +163,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             title: 'index.html',
             favicon: './favicon.ico',
-            template: 'src/index.html',
+            template: './index.html',
             hash: true,
             inject: 'body',
             minify: {
