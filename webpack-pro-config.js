@@ -56,7 +56,7 @@ module.exports = {
         }),
         new HtmlWebpackPlugin({
             title: 'production',
-            template: './index.html',
+            template: './src/index.html',
             hash: true,
             inject: 'body',
             filename: 'index.html',
