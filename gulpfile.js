@@ -1,6 +1,6 @@
 const gulp = require('gulp');
 const connect = require('gulp-connect');
-const ghpages = require('gulp-gh-pages');
+const ghPages = require('gulp-gh-pages');
 
 const port = process.env.port || 8080;
 
@@ -14,5 +14,9 @@ gulp.task('connect-pro', function() {
 
 gulp.task('deploy', function() {
     return gulp.src('./dist/**/*')
-        .pipe(ghpages());
+        .pipe(ghPages({
+            remoteUrl: 'https://github.com/ccicc/React-demo.git',
+            force: true,
+            message: 'gh-pages'
+        }));
 });
