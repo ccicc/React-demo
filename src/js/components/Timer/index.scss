@@ -1,0 +1,44 @@
+.root{
+    width: 100%;
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    text-align:center;
+}
+
+.timer{
+    font-size: 0.5rem;
+    color: #666;
+}
+
+.status{
+    font-size: 0.4rem;
+    font-weight: 600;
+    margin-left: 0.2rem;
+}
+
+.start{
+    color: #1ab9c9;
+}
+
+.stop{
+    color: #cc6600;
+}
+
+.btn{
+    padding: 15px 30px;
+    margin: 10px 15px 0 0 ;
+    border-radius: 10px;
+    color: #eee;
+    background: #1abc9c;
+    border: 1px solid #1ab9c9;
+    cursor: pointer;
+    outline: none;
+}
+
+.btn[disabled]{
+    color: #ccc;
+    border-color: #ccc;
+    background: #fff;
+    cursor: not-allowed;
+}
