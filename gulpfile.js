@@ -15,7 +15,6 @@ gulp.task('connect-pro', function() {
 gulp.task('deploy', function() {
     return gulp.src('./dist/**/*')
         .pipe(ghPages({
-            remoteUrl: 'https://github.com/ccicc/React-demo.git',
             force: true,
             message: 'gh-pages'
         }));
