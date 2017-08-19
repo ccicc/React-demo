@@ -24,7 +24,7 @@ const initState = [
 
 function todoItems(state: ItemsState = initState, action: ItemsAction): ItemsState {
     switch (action.type) {
-        case 'TODO_ADD':
+        case 'TODO_ADD': {
             return [
                 ...state,
                 {
@@ -33,24 +33,32 @@ function todoItems(state: ItemsState = initState, action: ItemsAction): ItemsSta
                     id: state.reduce((maxId, item) => Math.max(maxId, item.id), -1) + 1,
                 },
             ];
-        case 'TODO_COMPLETED':
+        }
+        case 'TODO_COMPLETED': {
+            const id = action.id;
             return state.map(
-                item => item.id === action.id
+                item => item.id === id
                     ?
                     { ...item, completed: !item.completed }
                     :
                     item
             );
-        case 'TODO_DELETE':
-            return state.filter(item => item.id !== action.id);
-        case 'TODO_EDITOR':
+        }
+        case 'TODO_DELETE': {
+            const id = action.id;
+            return state.filter(item => item.id !== id);
+        }
+        case 'TODO_EDITOR': {
+            const id = action.id;
+            const content = action.content;
             return state.map(
-                item => item.id === action.id && item.content !== action.content
+                item => item.id === id && item.content !== content
                     ?
-                    { ...item, content: action.content }
+                    { ...item, content }
                     :
                     item
             );
+        }
         default:
             return state;
     }

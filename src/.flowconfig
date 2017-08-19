@@ -1,8 +1,14 @@
 [ignore]
+.*/node_modules/.*
+.*/coverage/.**
+.*/dist/.**
+.*/test/.**
 
 [include]
+./js/**
 
 [libs]
+./../flow-typed/
 
 [lints]
 
@@ -11,4 +17,3 @@ emoji=true
 esproposal.export_star_as=enable
 module.file_ext=.js
 module.file_ext=.jsx
-module.system=haste
