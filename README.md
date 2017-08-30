@@ -1,22 +1,21 @@
-# React Redux Demo
+# 学习React, Redux， Redux-saga的小应用
 
-# 启动项目
+* ## 启动项目
+
 ```
-# 下载依赖
-npm install 
+下载依赖
+cnpm install 
 
-# 开发环境下启动 localhost:8080
+启动项目
 npm start
 
-# 打包
+打包构建
 npm run build
-
 ```
 
-# 测试
+* ## 测试
+
 ```
-# 运行测试，生成测试报告 coverage/index.html
+运行测试，生成测试报告
 npm run test
 ```
-
----

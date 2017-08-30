@@ -1,10 +1,10 @@
 {
     "presets":[
         ["env",{
-            "target": {
-                "browser": ["ie >= 9", "last 2 Chrome version"]
+            "targets": {
+                "browsers": ["ie >= 9", "last 2 Chrome versions"],
+                "node": "current"
             },
-            "node": "current",
             "loose": true
         }],
         "react",
